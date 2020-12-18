@@ -1,0 +1,41 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script>
+
+		var input1 = 120;
+		var input2 = 2;
+		var operation = "divide";
+		var result = 0;
+
+		if (input1 == 0 || input2 == 0) {
+			console.log("Enter a value greater than 0!");
+		}
+		else {
+
+			if (operation == "add") {
+				result = input1 + input2;
+			} else if (operation == "subtract") {
+				result = input1 - input2;
+			} else if (operation == "multiply") {
+				result = input1 * input2;
+			} else if (operation == "divide") {
+				result = input1 / input2;
+			} else {
+				result = "?";
+			}
+
+			console.log(result);
+		}
+
+		// var result = input1 - input2;
+
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
