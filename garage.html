@@ -1,0 +1,55 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+
+</head>
+<body>
+
+	<h1 id="garage-heading"></h1>
+	<h2 id="gas-station"><h2>
+
+
+	<script>
+
+	var garage = [];
+
+	function vehicleFactory(make, model) {
+		var vehicle = {
+			make: make,
+			model: model,
+			year: 2020,
+			color: "red",
+			fuel: 100,
+			drive: function() {
+				return "Parking our " + this.year + " " + this.make + " " + this.model + " in the garage.";
+			}
+		}
+
+		return vehicle;
+	}
+
+	var vehicle1 = vehicleFactory("Toyota", "Tundra");
+	var vehicle2 = vehicleFactory("Ford", "Taurus");
+
+	garage.push(vehicle1);
+	garage.push(vehicle2);
+
+	var heading = document.getElementById("garage-heading");
+	heading.innerHTML = garage[0].drive();
+
+	garage[0].fuel = 5;
+
+	var gas = document.getElementById("gas-station");
+	if (vehicle2.fuel < 10) {
+		gas.innerHTML = "GET SOME GAS!";
+	}
+	else {
+		gas.innerHTML = "HIT THE ROAD!";
+	}
+
+	</script>
+	
+</body>
+</html>
