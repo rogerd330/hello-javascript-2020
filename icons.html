@@ -1,0 +1,45 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="https://use.fontawesome.com/83ba41554d.js"></script>
+
+	<style>
+		.winter-time {
+			font-size: 1000px;
+			color: aliceblue;
+		}
+	</style>
+
+</head>
+<body>
+
+	<button id="increase">+</button>
+	<button id="decrease">-</button>
+
+	<i id="snowflake" class="fa fa-snowflake-o winter-time" aria-hidden="true"></i>
+
+
+	<script>
+		var btnIncrease = document.getElementById("increase")
+		var btnDecrease = document.getElementById("decrease")
+
+		btnIncrease.addEventListener('click', makeBigger)
+		btnDecrease.addEventListener('click', makeSmaller)
+
+		function makeBigger() {
+			console.log('this one makes you bigger');
+			var snowflake = document.getElementById("snowflake")
+			snowflake.style.fontSize = "1500px";
+		}
+
+		function makeSmaller() {
+			console.log('this one makes you smaller');
+			var snowflake = document.getElementById("snowflake")
+			snowflake.style.fontSize = "500px";
+		}
+	</script>
+	
+</body>
+</html>
