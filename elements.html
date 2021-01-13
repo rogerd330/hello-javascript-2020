@@ -1,0 +1,53 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+
+	<style>
+		
+		.hidden {
+			text-decoration: line-through;
+		}
+
+	</style>
+
+</head>
+<body>
+
+
+	<script>
+		
+		let heading = document.createElement('h1');
+
+		let message = document.createTextNode('Hello World');
+		heading.appendChild(message);
+
+		console.log(heading);
+
+		let body = document.getElementsByTagName('body');
+		body[0].appendChild(heading);
+		console.log(body);
+
+		let week = document.createElement("ul");
+		week.addEventListener('click', hide);
+		body[0].appendChild(week);
+
+		let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturay", "Sunday"];
+		days.forEach(function(dayName) {
+			let day = document.createElement("li");
+			day.innerText = dayName;
+
+			week.appendChild(day);
+		})
+
+		function hide(event) {
+			console.log('hiding a day of the week: ' + event.target.innerText);
+			event.target.classList.toggle('hidden');
+
+		}
+
+	</script>
+	
+</body>
+</html>
