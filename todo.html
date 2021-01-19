@@ -1,0 +1,104 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+
+	<style>
+		.done {
+			text-decoration: line-through;
+		}
+
+		.task-name {
+			display: inline-block;
+			width: 100px;
+		}
+	</style>
+</head>
+<body>
+
+	<input type="text" id="new-task" placeholder="Add your task...">
+	<button id="add-task">Add</button>
+
+	<ul id="task-list"></ul>
+
+	<button id="clear-list">Clear All Tasks</button>
+
+	<script>
+
+		var tasks = [];
+
+		document.getElementById("add-task").addEventListener('click', addTask);
+		document.getElementById("clear-list").addEventListener('click', function() {
+			tasks = [];
+			listTasks();
+		});
+
+		function addTask() {
+			let newTask = document.getElementById("new-task");
+
+			if (newTask.value != '') {
+				tasks.push(newTask.value);
+
+				newTask.value = '';
+
+				listTasks();
+			}
+		}
+
+		function listTasks() {
+			let taskList = document.getElementById("task-list");
+
+			taskList.innerHTML = '';
+
+			tasks.forEach(function(task) {
+
+				taskItem = document.createElement('li');
+
+				taskDone = document.createElement('input');
+				taskDone.type = 'checkbox';
+				taskDone.addEventListener('change', function(event) {
+					if (event.target.checked) {
+						event.target.nextSibling.classList.add('done');
+					}
+					else {
+						event.target.nextSibling.classList.remove('done');
+					}
+				});
+
+				taskName = document.createElement('span');
+				taskName.classList.add('task-name');
+				taskName.innerText = task;
+
+				taskDelete = document.createElement('button');
+				taskDelete.innerHTML = '&times;';
+				taskDelete.addEventListener('click', function(event) {
+					removeTask(event.target.previousSibling.innerText);
+				});
+
+				taskItem.appendChild(taskDone);
+				taskItem.appendChild(taskName);
+				taskItem.appendChild(taskDelete);
+
+				taskList.appendChild(taskItem);
+			});
+		}
+
+		function removeTask(task) {
+			tasks = tasks.filter(function(element) {
+				if (element == task) {
+					return false;
+				}
+				else {
+					return true;
+				}
+			});
+
+			listTasks();
+		}
+		
+
+	</script>
+	
+</body>
+</html>
