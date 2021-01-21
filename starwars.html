@@ -1,0 +1,25 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Star Wars API</title>
+</head>
+<body>
+
+	<h1 id="character"></h1>
+
+	<script>
+		
+		let request = new XMLHttpRequest();
+		request.addEventListener("load", function() {
+			let person = JSON.parse(this.responseText);
+			console.log(person.name);
+			document.getElementById("character").innerText = person.name + " has " + person.eye_color + " eyes";
+		});
+		request.open('GET', 'https://swapi.dev/api/people/4/');
+		request.send();
+
+	</script>
+	
+</body>
+</html>
